@@ -38,6 +38,7 @@ app.get('/', (req, res) => {
   res.redirect('/restaurants')
 })
 
+//!!!!!!注意顯示新增餐廳頁面的路由不能放在顯示單一餐廳資訊後面,否則再載入新增頁面的時候會找錯路由!!!!!!!!!!!!!!!!!
 //顯示新增餐廳頁面
 app.get('/restaurants/new', (req, res) => {
   res.render('new')
@@ -68,25 +69,64 @@ app.get('/search', (req, res) => {
     )
 })
 
+
 //新增一筆餐廳資料
 app.post('/restaurants/', (req, res) => {
 
-  const restaurant = new Restaurant(req.body)
-  console.log('restaurant', restaurant)
-  /*
+  const restaurant = new Restaurant({
+    name: req.body.name,
+    category: req.body.category,
+    location: req.body.location,
+    phone: req.body.phone,
+    image: req.body.image,
+    description: req.body.description
+  })
+  // console.log('restaurant', restaurant)
+
   restaurant.save(err => {
     if (err) return console.error(err)
     return res.redirect('/')
   })
-  */
 })
 
 //顯示修改一筆餐廳資料的頁面
-app.get('/restaurants/:id/edit')
+app.get('/restaurants/:id/edit', (req, res) => {
+
+  Restaurant.findById(req.params.id)
+    .lean()
+    .exec((err, restaurant) => {
+      if (err) return console.error(err)
+      return res.render('edit', { restaurant })
+    })
+})
+
 //修改一筆餐廳資料
-app.post('/restaurants/:id/edit')
+app.post('/restaurants/:id/edit', (req, res) => {
+  Restaurant.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.error(err)
+    restaurant.name = req.body.name
+    restaurant.category = req.body.category
+    restaurant.image = req.body.image
+    restaurant.location = req.body.location
+    restaurant.phone = req.body.phone
+    restaurant.description = req.body.description
+    restaurant.save(err => {
+      if (err) return console.error(err)
+      return res.redirect(`/restaurants/${req.params.id}`)
+    })
+  })
+})
+
 //刪除一筆餐廳資料
-app.post('/restaurants/:id/delete')
+app.post('/restaurants/:id/delete', (req, res) => {
+  Restaurant.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.error(err)
+    restaurant.remove(err => {
+      if (err) return console.error(err)
+      return res.redirect('/restaurants')
+    })
+  })
+})
 
 
 app.listen(port, () => {

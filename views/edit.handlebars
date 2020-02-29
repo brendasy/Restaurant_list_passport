@@ -1,13 +1,13 @@
 <div class="container mt-5 pt-3">
   <div class="row">
     <div class="col-12 col-lg-9 col-md-10 mx-auto">
-      <form action="/restaurants/" method="POST">
+      <form action="/restaurants/{{restaurant._id}}/edit" method="POST">
         <p class="mb-1 d-inline-flex d-flex justify-content-between col-12 col-lg-9">
           <span class="text-secondary">
             <i class="fas fa-sign pr-2"></i>
             餐廳名稱：
           </span>
-          <input class="col-9 col-lg-8" type="text" name="name" required>
+          <input class="col-9 col-lg-8" type="text" name="name" value="{{restaurant.name}}" required>
 
         </p>
 
@@ -16,7 +16,7 @@
             <i class="fas fa-utensils pr-2"></i>
             類別：
           </span>
-          <input class="col-9 col-lg-8" type="text" name="category" required>
+          <input class="col-9 col-lg-8" type="text" name="category" value="{{restaurant.category}}" required>
 
         </p>
 
@@ -25,7 +25,7 @@
             <i class="fas fa-map-marker-alt pr-2"></i>
             地址：
           </span>
-          <input class="col-9 col-lg-8" type="text" name="location" required>
+          <input class="col-9 col-lg-8" type="text" name="location" value="{{restaurant.location}}" required>
 
         </p>
 
@@ -34,7 +34,7 @@
             <i class="fas fa-mobile-alt pr-2"></i>
             電話：
           </span>
-          <input class="col-9 col-lg-8" type="tel" name="phone">
+          <input class="col-9 col-lg-8" type="tel" name="phone" value="{{restaurant.phone}}">
 
         </p>
 
@@ -43,19 +43,19 @@
             <i class="fas fa-camera-retro pr-2"></i>
             圖片連結：
           </span>
-          <input class="col-9 col-lg-8" type="url" name="image">
+          <input class="col-9 col-lg-8" type="url" name="image" value="{{restaurant.image}}">
 
         </p>
 
         <p class="mb-1 d-inline-flex d-flex justify-content-between col-12 col-lg-9">
           <span class="text-secondary">特色描述:</span>
-          <textarea name="description" class="col-9 col-lg-8" cols="30" rows="4"></textarea>
+          <textarea name="description" class="col-9 col-lg-8" cols="30" rows="4">{{restaurant.description}}</textarea>
 
         </p>
         <div class="mb-5 d-inline-flex justify-content-end col-12 col-lg-9">
-          <input type="submit" value="新增"></input>
+          <input type="submit" value="修改"></input>
 
-          <a class="ml-2 btn" tabindex=" -1" role="button" aria-disabled="true" href="/restaurants">
+          <a class="ml-2 btn" tabindex=" -1" role="button" aria-disabled="true" href="/restaurants/{{restaurant._id}}">
             取消
           </a>
         </div>
