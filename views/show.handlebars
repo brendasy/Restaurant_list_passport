@@ -2,7 +2,17 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
-
+      <div class="d-inline-flex justify-content-end col-12 col-lg-9">
+        <a class="ml-1" href="/restaurants/">
+          <button>返回</button>
+        </a>
+        <a class="ml-1" href="/restaurants/{{restaurant._id}}/edit">
+          <button>修改</button>
+        </a>
+        <a class="ml-1" href="/restaurants/{{restaurant._id}}/delete">
+          <button>刪除</button>
+        </a>
+      </div>
       <p class="mb-1">
         <span class="text-secondary">
           <i class="fas fa-utensils pr-2"></i>

@@ -29,10 +29,40 @@ header {
   border: 0;
   margin-top: -60px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
 }
 
 .search-bar .search-bar-inner h4 {
   color: #9b4b4b;
+}
+
+.search-bar .search-bar-inner {
+  width: 80%;
+}
+
+.new-one div {
+  background-color: #fce2cf;
+  border-radius: 8px;
+  padding: 0px 30px;
+  border: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.32);
+ 
+}
+
+.new-one div:hover {
+  background-color: #9b4b4b;
+}
+
+a.new-one:hover {
+  color:#fff;
+}
+
+a.new-one { 
+  margin-top: 35px;
+  color: #9b4b4b;
+  text-decoration: none;
+  line-height: 2.5em;
 }
 
 .form-control::placeholder {

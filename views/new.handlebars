@@ -1,0 +1,65 @@
+<div class="container mt-5 pt-3">
+  <div class="row">
+    <div class="col-12 col-lg-9 col-md-10 mx-auto">
+      <form action="/restaurants/" method="POST">
+        <p class="mb-1 d-inline-flex d-flex justify-content-between col-12 col-lg-9">
+          <span class="text-secondary">
+            <i class="fas fa-sign pr-2"></i>
+            餐廳名稱：
+          </span>
+          <input class="col-9 col-lg-8" type="text" name="name" required>
+
+        </p>
+
+        <p class="mb-1 d-inline-flex d-flex justify-content-between col-12 col-lg-9">
+          <span class="text-secondary">
+            <i class="fas fa-utensils pr-2"></i>
+            類別：
+          </span>
+          <input class="col-9 col-lg-8" type="text" name="category" required>
+
+        </p>
+
+        <p class="mb-1 d-inline-flex d-flex justify-content-between col-12 col-lg-9">
+          <span class="text-secondary">
+            <i class="fas fa-map-marker-alt pr-2"></i>
+            地址：
+          </span>
+          <input class="col-9 col-lg-8" type="text" name="location" required>
+
+        </p>
+
+        <p class="mb-1 d-inline-flex d-flex justify-content-between col-12 col-lg-9">
+          <span class="text-secondary">
+            <i class="fas fa-mobile-alt pr-2"></i>
+            電話：
+          </span>
+          <input class="col-9 col-lg-8" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+        </p>
+
+        <p class="mb-1 d-inline-flex d-flex justify-content-between col-12 col-lg-9">
+          <span class="text-secondary">
+            <i class="fas fa-camera-retro pr-2"></i>
+            圖片連結：
+          </span>
+          <input class="col-9 col-lg-8" type="url" name="image">
+
+        </p>
+
+        <p class="mb-1 d-inline-flex d-flex justify-content-between col-12 col-lg-9">
+          <span class="text-secondary">特色描述:</span>
+          <textarea name="description" class="col-9 col-lg-8" cols="30" rows="4"></textarea>
+
+        </p>
+        <div class="mb-5 d-inline-flex justify-content-end col-12 col-lg-9">
+          <input type="submit" value="新增"></input>
+
+          <a class="ml-2 btn" tabindex=" -1" role="button" aria-disabled="true" href="/restaurants">
+            取消
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
