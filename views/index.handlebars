@@ -47,11 +47,12 @@
                   {{/if}}
                   <div class="float-right mb-2">
                     <a class="text-decoration-none" href="/restaurants/{{this._id}}/edit">
-                      <button>修改</button>
+                      <button class="btn btn-outline-secondary">修改</button>
                     </a>
-                    <a class="text-decoration-none" href="/restaurants/{{this._id}}/delete">
-                      <button>刪除</button>
-                    </a>
+
+                    <form class="list-inline-item" action="/restaurants/{{this._id}}/delete" method="POST">
+                      <button class="btn btn-outline-secondary">刪除</button>
+                    </form>
                   </div>
                 </div>
               </div>

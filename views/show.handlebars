@@ -4,14 +4,14 @@
     <div class="col-12 col-md-10 mx-auto">
       <div class="d-inline-flex justify-content-end col-12 col-lg-9">
         <a class="ml-1" href="/restaurants/">
-          <button>返回</button>
+          <button class="btn btn-outline-secondary">返回</button>
         </a>
         <a class="ml-1" href="/restaurants/{{restaurant._id}}/edit">
-          <button>修改</button>
+          <button class="btn btn-outline-secondary">修改</button>
         </a>
-        <a class="ml-1" href="/restaurants/{{restaurant._id}}/delete">
-          <button>刪除</button>
-        </a>
+        <form class="ml-1 list-inline-item" action="/restaurants/{{restaurant._id}}/delete" method="POST">
+          <button class="btn btn-outline-secondary">刪除</button>
+        </form>
       </div>
       <p class="mb-1">
         <span class="text-secondary">
