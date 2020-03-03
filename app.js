@@ -1,17 +1,25 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const Restaurant = require('./models/restaurant')
-const bodyParser = require('body-parser')
+
 const app = express()
 const port = 3000
-const exphbs = require('express-handlebars')
+app.use(express.static('public'))
 
+const exphbs = require('express-handlebars')
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
-app.use(express.static('public'))
+const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
+const methodOvervide = require('method-override')
+app.use(methodOvervide('_method'))
+
+//route 設定ˋ
+//app.use('/', require('./routes/home'))
+//app.use('/restaurants', require('./routes/restaurants'))
+
+const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
@@ -34,6 +42,7 @@ app.get('/restaurants', (req, res) => {
       res.render('index', { restaurants })
     })
 })
+
 app.get('/', (req, res) => {
   res.redirect('/restaurants')
 })
@@ -101,7 +110,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 //修改一筆餐廳資料
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
     restaurant.name = req.body.name
@@ -118,7 +127,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 //刪除一筆餐廳資料
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
     restaurant.remove(err => {
