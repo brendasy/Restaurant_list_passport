@@ -1,5 +1,5 @@
 # Restaurant_list_RESTful
-用method-override module讓路由符合RESTful格式,增加排序功能
+載入method-override module讓路由符合RESTful格式,增加排序功能
 
 ## Getting Started
 ### Installing
