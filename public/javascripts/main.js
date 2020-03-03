@@ -1,3 +1,5 @@
+
+//add confirm for delete action
 const forms = document.forms
 for (let element of forms) {
   element.addEventListener('click', (e) => {
@@ -9,3 +11,13 @@ for (let element of forms) {
     }
   })
 }
+
+//sort action
+const sort = document.querySelector('.sort')
+
+sort.addEventListener('change', function () {
+  if (event.target.id === 'sort' && event.target.value != '') {
+    this.submit()
+  }
+
+})
