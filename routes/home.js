@@ -20,4 +20,22 @@ router.get('/search', (req, res) => {
     )
 })
 
+router.get('/sort', (req, res) => {
+
+  const keyword = req.query.keyword
+  const sortType = req.query.sort_type
+  console.log('req.query: ', req.query)
+  Restaurant.find()
+    .sort(sortType)
+    .lean()
+    .exec((err, restaurants) => {
+      if (err) return console.error(err)
+      if (keyword != '') {
+        restaurants = restaurants.filter(each_restaurant => each_restaurant.name.toLowerCase().includes(keyword.toLowerCase()))
+      }
+      return res.render('index', { restaurants: restaurants, keyword: keyword, [sortType]: sortType })
+    })
+})
+
+
 module.exports = router
