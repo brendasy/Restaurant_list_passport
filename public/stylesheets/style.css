@@ -56,16 +56,19 @@ header {
 }
 
 .new-one div {
-  background-color: #fce2cf;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 0px 30px;
-  border: 0;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.32);
+  border: 1px solid #4592af;
+  transition: color 0.3s ease-in-out, 
+    background-color 0.3s ease-in-out, 
+    border-color 0.15s ease-in-out, 
+    box-shadow 0.15s ease-in-out;
  
 }
 
 .new-one div:hover {
-  background-color: #9b4b4b;
+  background-color: #4592af;
 }
 
 a.new-one:hover {
@@ -76,7 +79,7 @@ a.new-one {
   position: absolute;
   top: 8px;
   right: 80px;
-  color: #9b4b4b;
+  color: #4592af;
   text-decoration: none;
   line-height: 2.5em;
 }
