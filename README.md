@@ -13,24 +13,24 @@ install MongoDB
 
 #### 1.Clone or download this project
 ```
-git clone https://github.com/brendasy/Restaurant_list_db.git
+git clone https://github.com/brendasy/Restaurant_list_RESTful.git
 ```
 
 #### 2.Dowload modules 
 ```
-cd Restaurant_list_db/
+cd Restaurant_list_RESTful/
 npm install
 ```
 
 #### 3.Install Nodemon
 ```
-cd Restaurant_list_db/
+cd Restaurant_list_RESTful/
 npm install -g nodemon
 ```
 
 #### 4.Initial the seeds data 
 ```
-cd Restaurant_list_db/models/seeds
+cd Restaurant_list_RESTful/models/seeds
 node restaurantSeeder.js
 ```
 Now you can check MongoDB if there are 8 restaurants data in restaurants collections under restaurant database.
@@ -39,7 +39,7 @@ If there are data in restaurant dbs, then you could go on the next step.
 
 #### 5.Execute the web server
 ```
-cd Restaurant_list_db/
+cd Restaurant_list_RESTful/
 npm run dev
 ```
 #### If you may see the result as following, then you could go on the next step.
