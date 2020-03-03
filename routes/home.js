@@ -24,7 +24,7 @@ router.get('/sort', (req, res) => {
 
   const keyword = req.query.keyword
   const sortType = req.query.sort_type
-  console.log('req.query: ', req.query)
+
   Restaurant.find()
     .sort(sortType)
     .lean()

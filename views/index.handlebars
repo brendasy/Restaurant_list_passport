@@ -43,7 +43,11 @@
           <div class="mb-3">
             <a href="/restaurants/{{this._id}}" class="text-secondary text-decoration-none">
               <div class="card">
-                <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                {{#if this.image}}
+                  <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                {{else}}
+                  <img class="card-img-top" src="https://via.placeholder.com/300.jpg" alt="{{this.name}}">
+                {{/if}}
                 <div class="card-body p-3">
                   <h6 class="card-title mb-1">{{this.name}}</h6>
 
