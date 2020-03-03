@@ -1,5 +1,5 @@
-# Restaurant_list_db
-用MongoDB做資料庫搭配mongoose做ODM用來儲存餐廳資訊
+# Restaurant_list_RESTful
+用method-override module讓路由符合RESTful格式,增加排序功能
 
 ## Getting Started
 ### Installing
