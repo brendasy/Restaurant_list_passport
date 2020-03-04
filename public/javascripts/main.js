@@ -16,7 +16,7 @@ for (let element of forms) {
 const sort = document.querySelector('.sort')
 
 sort.addEventListener('change', function () {
-  if (event.target.id === 'sort' && event.target.value != '') {
+  if (event.target.id === 'sort' && event.target.value !== '') {
     this.submit()
   }
 

@@ -1,28 +1,29 @@
-<!-- search bar -->
+<!-- search & sort bar -->
 <div class="container search-bar">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
-      <form action="/search">
-        <!--h4 class="mb-2">尋找餐廳：</h4-->
-        <div class="input-group">
+      <form class="sort" action="/search&sort">
+        <!-- search -->
+        <div class="input-group w-auto">
           <input type="text" name="keyword" class="form-control" value="{{keyword}}" placeholder="輸入餐廳、分類"
             aria-label="Restaurant Name..." value="" aria-describedby="search-button">
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
           </div>
         </div>
+        <!-- sort -->
+        <div class="input-group w-auto">
+          <select name="sort_type" id="sort">
+            <option value="">排序</option>
+            <option value="name" {{#if name}}selected{{/if}}>依字母順序(A-Z)</option>
+            <option value="-name" {{#if -name}}selected{{/if}}>依字母順序(Z-A)</option>
+            <option value="category" {{#if category}}selected{{/if}}>依類別</option>
+            <option value="location" {{#if location}}selected{{/if}}>依地區</option>
+          </select>
+        </div>
+
       </form>
     </div>
-    <form class="sort" action="/sort">
-      <input type="hidden" name="keyword" value="{{keyword}}">
-      <select name="sort_type" id="sort">
-        <option value="">排序</option>
-        <option value="name" {{#if name}}selected{{/if}}>依字母順序(A-Z)</option>
-        <option value="-name" {{#if -name}}selected{{/if}}>依字母順序(Z-A)</option>
-        <option value="category" {{#if category}}selected{{/if}}>依類別</option>
-        <option value="location" {{#if location}}selected{{/if}}>依地區</option>
-      </select>
-    </form>
   </div>
 
   <a class="new-one" href="/restaurants/new">
@@ -61,8 +62,8 @@
                     </span>
                   {{/if}}
                   <div class="float-right mb-2">
-                    <a class="text-decoration-none" href="/restaurants/{{this._id}}/edit">
-                      <button class="btn btn-outline-secondary">修改</button>
+                    <a class="text-decoration-none btn btn-outline-secondary" href="/restaurants/{{this._id}}/edit">
+                      修改
                     </a>
 
                     <form class="list-inline-item" action="/restaurants/{{this._id}}?_method=DELETE" method="POST">

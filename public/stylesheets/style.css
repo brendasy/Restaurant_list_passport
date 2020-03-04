@@ -39,11 +39,12 @@ header {
 }
 
 .search-bar .search-bar-inner {
-  width: 30%;
+  width: 100%;
 }
 
 .sort {
-  width: 18%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sort select{
@@ -52,7 +53,7 @@ header {
   color: #aaa;
   font-size: 0.75rem;
   height: 100%;
-  width: 100%;
+  
 }
 
 .new-one div {

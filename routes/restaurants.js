@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
     .lean()
     .exec((err, restaurant) => {
       if (err) return console.error(err)
-      return res.render('show', { restaurant: restaurant })
+      return res.render('show', { restaurant })
     })
 })
 
@@ -42,7 +42,6 @@ router.post('/', (req, res) => {
     image: req.body.image,
     description: req.body.description
   })
-  // console.log('restaurant', restaurant)
 
   restaurant.save(err => {
     if (err) return console.error(err)
