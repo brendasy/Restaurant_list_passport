@@ -6,7 +6,7 @@ const { authenticated } = require('../config/auth')
 //顯示所有餐廳資訊
 router.get('/', authenticated, (req, res) => {
 
-  Restaurant.find()
+  Restaurant.find({ userId: req.user._id })
     .lean()
     .exec((err, restaurants) => {
       if (err) return console.error(err)
@@ -24,7 +24,7 @@ router.get('/new', authenticated, (req, res) => {
 //顯示單一餐廳資訊
 router.get('/:id', authenticated, (req, res) => {
 
-  Restaurant.findById(req.params.id)
+  Restaurant.findOne({ _id: req.params.id, userId: req.user._id })
     .lean()
     .exec((err, restaurant) => {
       if (err) return console.error(err)
@@ -41,7 +41,8 @@ router.post('/', authenticated, (req, res) => {
     location: req.body.location,
     phone: req.body.phone,
     image: req.body.image,
-    description: req.body.description
+    description: req.body.description,
+    userId: req.user._id
   })
 
   restaurant.save(err => {
@@ -53,7 +54,7 @@ router.post('/', authenticated, (req, res) => {
 //顯示修改一筆餐廳資料的頁面
 router.get('/:id/edit', authenticated, (req, res) => {
 
-  Restaurant.findById(req.params.id)
+  Restaurant.findOne({ _id: req.params.id, userId: req.user._id })
     .lean()
     .exec((err, restaurant) => {
       if (err) return console.error(err)
@@ -63,7 +64,7 @@ router.get('/:id/edit', authenticated, (req, res) => {
 
 //修改一筆餐廳資料
 router.put('/:id', authenticated, (req, res) => {
-  Restaurant.findById(req.params.id, (err, restaurant) => {
+  Restaurant.findOne({ _id: req.params.id, userId: req.user._id }, (err, restaurant) => {
     if (err) return console.error(err)
     restaurant.name = req.body.name
     restaurant.category = req.body.category
@@ -80,7 +81,7 @@ router.put('/:id', authenticated, (req, res) => {
 
 //刪除一筆餐廳資料
 router.delete('/:id', authenticated, (req, res) => {
-  Restaurant.findById(req.params.id, (err, restaurant) => {
+  Restaurant.findOne({ _id: req.params.id, userId: req.user._id }, (err, restaurant) => {
     if (err) return console.error(err)
     restaurant.remove(err => {
       if (err) return console.error(err)

@@ -13,7 +13,7 @@ router.get('/search&sort', authenticated, (req, res) => {
   const keyword = req.query.keyword
   const sortType = req.query.sort_type
 
-  Restaurant.find()
+  Restaurant.find({ userId: req.user._id })
     .sort(sortType)
     .lean()
     .exec((err, restaurants) => {
