@@ -84,7 +84,12 @@ a.new-one {
   box-shadow: none !important;
 }
 
-.btn-facebook{
+.btn-logout {
+  position: absolute;
+  right: 70px;
+}
+
+.btn-facebook {
   background-color: #3B5998 !important;
   color: #fff !important;
 }
