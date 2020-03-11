@@ -1,5 +1,5 @@
-# Restaurant_list_RESTful
-載入method-override module讓路由符合RESTful格式,增加排序功能
+# Restaurant_list_passport
+載入passport module,增加local login/facebook login功能,session機制,bcrypt hash code, flash message
 
 ## Getting Started
 ### Installing
@@ -13,33 +13,33 @@ install MongoDB
 
 #### 1.Clone or download this project
 ```
-git clone https://github.com/brendasy/Restaurant_list_RESTful.git
+git clone https://github.com/brendasy/Restaurant_list_passport.git
 ```
 
 #### 2.Dowload modules 
 ```
-cd Restaurant_list_RESTful/
+cd Restaurant_list_passport/
 npm install
 ```
 
 #### 3.Install Nodemon
 ```
-cd Restaurant_list_RESTful/
+cd Restaurant_list_passport/
 npm install -g nodemon
 ```
 
 #### 4.Initial the seeds data 
 ```
-cd Restaurant_list_RESTful/models/seeds
-node restaurantSeeder.js
+cd Restaurant_list_passport/models/seeds
+node Seeder.js
 ```
-Now you can check MongoDB if there are 8 restaurants data in restaurants collections under restaurant database.
+Now you can check MongoDB if there are 2 users in users collection and each user has 3 restaurants data in restaurants collection under restaurant database.
 
 If there are data in restaurant dbs, then you could go on the next step.
 
 #### 5.Execute the web server
 ```
-cd Restaurant_list_RESTful/
+cd Restaurant_list_passport/
 npm run dev
 ```
 #### If you may see the result as following, then you could go on the next step.
