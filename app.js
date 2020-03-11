@@ -3,7 +3,6 @@ const express = require('express')
 if (process.env.NODE_ENV !== 'production') {      // 如果不是 production 模式
   require('dotenv').config()                      // 使用 dotenv 讀取 .env 檔案
 }
-const Restaurant = require('./models/restaurant')
 
 const app = express()
 const port = 3000
@@ -19,11 +18,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const methodOvervide = require('method-override')
 app.use(methodOvervide('_method'))
 
+const flash = require('connect-flash')
+app.use(flash())
+
 const session = require('express-session')
 const passport = require('passport')
 
 app.use(session({
-  secret: 'your secret key',   // secret: 定義一組屬於你的字串做為私鑰
+  secret: '3345678',   // secret: 定義一組屬於你的字串做為私鑰
   resave: false,
   saveUninitialized: true,
 }))
@@ -37,6 +39,9 @@ require('./config/passport')(passport)
 app.use((req, res, next) => {
   res.locals.user = req.user
   res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.warning_msg = req.flash('warning_msg')
+  res.locals.errors = [{ message: req.flash('error') }]
   next()
 })
 
@@ -45,7 +50,6 @@ app.use('/', require('./routes/home'))
 app.use('/restaurants', require('./routes/restaurants'))
 app.use('/users', require('./routes/users'))
 app.use('/auth', require('./routes/auth'))
-
 
 
 const mongoose = require('mongoose')
