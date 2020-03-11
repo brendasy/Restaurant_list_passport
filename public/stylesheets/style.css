@@ -2,14 +2,6 @@ header {
   overflow: hidden;
 }
 
-.navbar .navbar-brand {
-  color: #4592af;
-}
-
-.navbar .navbar-brand:hover {
-  color: #226089;
-}
-
 .banner {
   position: relative;
   z-index: -1;
@@ -24,7 +16,7 @@ header {
   margin: 0 auto;
   /*max-width: 680px;*/
   max-width: 88%;
-  background-color: #fce2cf;
+  background-color: #fff;
   border-radius: 8px;
   padding: 20px 30px;
   border: 0;
@@ -60,7 +52,7 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 0px 30px;
-  border: 1px solid #4592af;
+  border: 1px solid #78C2AD;
   transition: color 0.3s ease-in-out, 
     background-color 0.3s ease-in-out, 
     border-color 0.15s ease-in-out, 
@@ -69,20 +61,18 @@ header {
 }
 
 .new-one div:hover {
-  background-color: #4592af;
+  background-color: #78C2AD;
 }
 
 a.new-one:hover {
   color:#fff;
+  text-decoration: none;
 }
 
 a.new-one { 
   position: absolute;
-  top: 8px;
-  right: 80px;
-  color: #4592af;
-  text-decoration: none;
-  line-height: 2.5em;
+  top: 9px;
+  right: 200px;
 }
 
 .form-control::placeholder {
@@ -90,9 +80,13 @@ a.new-one {
   font-size: 0.8rem;
 }
 
-.btn-major {
-  background-color: #9b4b4b;
-  color: white;
+.btn:active {
+  box-shadow: none !important;
+}
+
+.btn-facebook{
+  background-color: #3B5998 !important;
+  color: #fff !important;
 }
 
 .form-control:focus {
